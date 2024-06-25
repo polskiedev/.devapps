@@ -29,6 +29,21 @@ make_symlinks() {
     echo "Creating symlinks..."
 }
 
+install_neovim() {
+    sudo apt install neovim
+    mkdir -p ~/.config/nvim
+    touch ~/.config/nvim/init.vim
+}
+
+install_tmux() {
+    sudo apt install tmux
+}
+
+install_all() {
+    install_neovim
+    install_tmux
+}
+
 # Check the parameter and call the corresponding function
 if [ -z "$1" ]; then
     # No parameter passed, default to initialize
@@ -44,6 +59,12 @@ else
             ;;
         "make:symlinks")
             make_symlinks
+            ;;
+        "install:all")
+            install_all
+            ;;
+        "install:tmux")
+            install_tmux
             ;;
         update)
             update
