@@ -1,0 +1,24 @@
+Extensions installed on WSL: Ubuntu:
+aaron-bond.better-comments
+adpyke.codesnap
+alefragnani.bookmarks
+bmewburn.vscode-intelephense-client
+britesnow.vscode-toggle-quotes
+cardinal90.multi-cursor-case-preserve
+donjayamanne.githistory
+dzhavat.bracket-pair-toggler
+eamodio.gitlens
+esbenp.prettier-vscode
+hediet.vscode-drawio
+johnpapa.vscode-peacock
+moalamri.inline-fold
+ms-azuretools.vscode-docker
+obliviousharmony.vscode-php-codesniffer
+ritwickdey.liveserver
+solomonkinard.git-blame
+tonybaloney.vscode-pets
+vsls-contrib.codetour
+waderyan.gitblame
+wayou.vscode-todo-highlight
+xdebug.php-debug
+zobo.php-intellisense

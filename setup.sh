@@ -44,6 +44,41 @@ install_all() {
     install_tmux
 }
 
+install_vscode_ext() {
+    echo "Installing vscode ext..."
+    local dest="$PATH_DEVAPPS/.vscode/extensions"
+    local filename_with_ext="vscode-extensions.txt"
+    local filename="$dest/$filename_with_ext"
+
+    if [ -f "$filename" ]; then
+        cat "$filename" | xargs -L 1 code --install-extension
+        if [ $? -eq 0 ]; then
+            echo "VSCode Extensions '$dir_path' successfully installed."
+            return 0
+        else
+            echo "Error: Failed to install VSCode Extensions."
+            return 1
+        fi
+    else
+        echo "'$filename' not found."
+    fi
+}
+
+backup_vscode_ext() {
+    # fix error in suffix
+    local dest="$PATH_DEVAPPS/.vscode/extensions/.backup"
+    local filename_with_ext="extensions-list.txt"
+    local suffix="_$(get_datetime --backup)"
+
+    local filename="${filename_with_ext%.*}"
+    local extension="${filename_with_ext##*.}"
+
+    filename="${filename}${suffix}.${extension}"
+
+    create_directories "$dest"
+    code --list-extensions > "$dest/$filename"
+}
+
 # Check the parameter and call the corresponding function
 if [ -z "$1" ]; then
     # No parameter passed, default to initialize
@@ -65,6 +100,12 @@ else
             ;;
         "install:tmux")
             install_tmux
+            ;;
+        "install:vscode.ext")
+            install_vscode_ext
+            ;;
+        "backup:vscode.ext")
+            backup_vscode_ext
             ;;
         update)
             update

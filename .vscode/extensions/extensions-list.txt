@@ -1,9 +1,0 @@
-Extensions installed on WSL: Ubuntu:
-bmewburn.vscode-intelephense-client
-dqisme.sync-scroll
-esbenp.prettier-vscode
-ms-azuretools.vscode-docker
-obliviousharmony.vscode-php-codesniffer
-waderyan.gitblame
-xdebug.php-debug
-zobo.php-intellisense
