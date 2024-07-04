@@ -53,7 +53,7 @@ install_vscode_ext() {
     if [ -f "$filename" ]; then
         cat "$filename" | xargs -L 1 code --install-extension
         if [ $? -eq 0 ]; then
-            echo "VSCode Extensions '$dir_path' successfully installed."
+            echo "VSCode Extensions from '$filename' successfully installed."
             return 0
         else
             echo "Error: Failed to install VSCode Extensions."
@@ -77,6 +77,13 @@ backup_vscode_ext() {
 
     create_directories "$dest"
     code --list-extensions > "$dest/$filename"
+    if [ $? -eq 0 ]; then
+        echo "VSCode Extensions list backup file:'$dest/$filename'"
+        return 0
+    else
+        echo "Error: Failed to backup VSCode Extensions."
+        return 1
+    fi
 }
 
 # Check the parameter and call the corresponding function
